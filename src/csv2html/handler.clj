@@ -87,4 +87,4 @@
              multipart-params/wrap-multipart-params))
 
 (defn -main [& args]
-  (http-kit/run-server #'app {:port 8080 :max-body 1000000000}))
+  (http-kit/run-server #'app {:port 4321 :max-body 1000000000}))
