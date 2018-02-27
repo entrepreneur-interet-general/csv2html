@@ -1,0 +1,2 @@
+{:secrets #include #join [#env HOME "/.secrets.edn"]
+ :port    4321}

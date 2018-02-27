@@ -3,6 +3,7 @@
   (:require [org.httpkit.server :as http-kit]
             [ring.middleware.reload :as reload]
             [ring.middleware.params :as params]
+            [ring.middleware.file   :as file]
             [ring.util.response :as response]
             [ring.middleware.multipart-params :as multipart-params]
             [ring.middleware.keyword-params :as keyword-params]
@@ -12,9 +13,8 @@
             [hiccup.page :as h]
             [hiccup.element :as he]
             [clojure.java.io :as io]
-            [clojure.data.csv :as data-csv]))
-
-(def export-dir "resources/public/exports/")
+            [clojure.data.csv :as data-csv]
+            [csv2html.config :as config]))
 
 (defn- home-page []
   (h/html5
@@ -73,18 +73,20 @@
         (let [file-name   (:filename file)
               actual-file (:tempfile file)
               rel-dir     (str (java.util.UUID/randomUUID) "/")
-              dest-file   (str export-dir rel-dir file-name)
-              dest-dir    (str export-dir rel-dir)]
+              dest-file   (str (config/export-dir) rel-dir file-name)
+              dest-dir    (str (config/export-dir) rel-dir)]
           (handle-upload actual-file dest-file dest-dir file-name)
-          (response/redirect (str "exports/" rel-dir "index.html"))))
+          ;; (response/redirect (str "exports/" rel-dir "index.html"))
+          (response/redirect (str rel-dir "index.html"))))
   (route/resources "/")
   (route/not-found "404 error"))
 
 (def app (-> app-routes
              reload/wrap-reload
              params/wrap-params
+             (file/wrap-file "/home/guerry/exports/")
              keyword-params/wrap-keyword-params
              multipart-params/wrap-multipart-params))
 
 (defn -main [& args]
-  (http-kit/run-server #'app {:port 4321 :max-body 1000000000}))
+  (http-kit/run-server #'app {:port (config/port) :max-body 100000000}))
