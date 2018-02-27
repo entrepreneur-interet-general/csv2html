@@ -4,7 +4,10 @@
 (def config (aero/read-config "config.edn"))
 
 (defn export-dir []
-  (get-in config [:secrets :export-dir]))
+  (or (System/getenv "CSV2HTML_EXPORTDIR")
+      (get-in config [:export-dir])))
 
 (defn port []
-  (get-in config [:secrets :port]))
+  (or (System/getenv "CSV2HTML_PORT")
+      (get-in config [:port])))
+
