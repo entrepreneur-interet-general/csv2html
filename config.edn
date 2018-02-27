@@ -1,2 +1,2 @@
-{:secrets #include #join [#env HOME "/.secrets.edn"]
- :port    4321}
+{:export-dir "/home/user/exports/"
+ :port       4321}
