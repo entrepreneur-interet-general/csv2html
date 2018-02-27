@@ -84,7 +84,7 @@
 (def app (-> app-routes
              reload/wrap-reload
              params/wrap-params
-             (file/wrap-file "/home/guerry/exports/")
+             (file/wrap-file (config/export-dir))
              keyword-params/wrap-keyword-params
              multipart-params/wrap-multipart-params))
 
