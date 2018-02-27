@@ -1,4 +1,4 @@
-(ns csv2datatables.handler
+(ns csv2html.handler
   (:gen-class)
   (:require [org.httpkit.server :as http-kit]
             [ring.middleware.reload :as reload]
@@ -20,14 +20,14 @@
   (h/html5
    {:lang "fr"}
    [:head
-    [:title "csv2datatables : export csv as datatables"]
+    [:title "csv2html - export a .csv file as a HTML page"]
     [:meta {:charset "utf-8"}]
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
     (h/include-css
      "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")]
    [:body
     [:div {:class "container"}
-     [:h1 "Export .csv file to HTML page"]
+     [:h1 "Export a .csv file to a HTML page"]
      [:form
       {:action "/file" :method "post" :enctype "multipart/form-data"}
       [:div {:class "form-group"}
