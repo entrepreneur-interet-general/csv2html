@@ -84,6 +84,7 @@
 (def app (-> app-routes
              reload/wrap-reload
              params/wrap-params
+             ;; (config/export-dir) should point to an existing directory
              (file/wrap-file (config/export-dir))
              keyword-params/wrap-keyword-params
              multipart-params/wrap-multipart-params))
