@@ -38,7 +38,7 @@ will do the same while running the application from a jar file.
 
 * Install
 
-** Deploying the .jar
+** Deploy the .jar
 
 : ~$ git clone https://github.com/entrepreneur-interet-general/csv2html
 : ~$ cd csv2html/
@@ -47,7 +47,7 @@ will do the same while running the application from a jar file.
 Then deploy =target/uberjar/csv2html-x.x.x-standalone.jar= anywhere you
 want with =java -jar csv2html-x.x.x-standalone.jar=.
 
-** Deploying a container
+** Deploy as a container
 
 : ~$ git clone https://github.com/entrepreneur-interet-general/csv2html
 : ~$ cd csv2html/
