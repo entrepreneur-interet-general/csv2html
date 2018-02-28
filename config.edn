@@ -1,2 +1,3 @@
-{:export-dir "/home/user/exports/"
- :port       4321}
+{:export-dir "/tmp/"
+ :port       4321
+ :max-body   100000000}
