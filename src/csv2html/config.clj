@@ -7,7 +7,10 @@
   (or (System/getenv "CSV2HTML_EXPORTDIR")
       (get-in config [:export-dir])))
 
-(defn port []
-  (or (System/getenv "CSV2HTML_PORT")
-      (get-in config [:port])))
+(defn max-body []
+  (or (read-string (System/getenv "CSV2HTML_MAXBODY"))
+      (get-in config [:max-body])))
 
+(defn port []
+  (or (read-string (System/getenv "CSV2HTML_PORT"))
+      (get-in config [:port])))
