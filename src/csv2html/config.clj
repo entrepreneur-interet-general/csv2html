@@ -8,9 +8,11 @@
       (get-in config [:export-dir])))
 
 (defn max-body []
-  (or (read-string (System/getenv "CSV2HTML_MAXBODY"))
-      (get-in config [:max-body])))
+  (if-let [max-body (System/getenv "CSV2HTML_MAXBODY")]
+    (read-string max-body)
+    (get-in config [:max-body])))
 
 (defn port []
-  (or (read-string (System/getenv "CSV2HTML_PORT"))
-      (get-in config [:port])))
+  (if-let [port (System/getenv "CSV2HTML_PORT")]
+    (read-string port)
+    (get-in config [:port])))
