@@ -51,6 +51,7 @@ want with =java -jar csv2html-x.x.x-standalone.jar=.
 
 : ~$ git clone https://github.com/entrepreneur-interet-general/csv2html
 : ~$ cd csv2html/
+: ~$ lein uberjar
 : ~$ docker build -t me/csv2html .
 
 will build the container which you can run with
