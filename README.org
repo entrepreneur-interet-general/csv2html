@@ -14,7 +14,7 @@ explode.
 : ~$ cd csv2html/
 : ~$ lein run
 
-Then go to https://localhost:4321.
+Then go to http://localhost:4321.
 
 * Configure
 
@@ -30,7 +30,7 @@ For example:
 
 : ~$ CSV2HTML_PORT="1234" lein run
 
-will run the application at https://localhost:1234
+will run the application at http://localhost:1234
 
 : ~$ CSV2HTML_PORT="1234" java -jar csv2html-x.x.x-standalone.jar
 
@@ -47,7 +47,7 @@ will do the same while running the application from a jar file.
 Then deploy =target/uberjar/csv2html-x.x.x-standalone.jar= anywhere you
 want with =java -jar csv2html-x.x.x-standalone.jar=.
 
-** Deploy as a container
+** Deploy with docker
 
 : ~$ git clone https://github.com/entrepreneur-interet-general/csv2html
 : ~$ cd csv2html/
@@ -57,9 +57,8 @@ will build the container which you can run with
 
 : ~$ CSV2HTML_EXPORTDIR="/exports/" docker run -p 4321:4321 me/csv2html
 
-Note that ~CSV2HTML_EXPORTDIR="/exports/"~ is quite mandatory here,
-otherwise your container will store HTML pages in =/tmp/= and lose them
-after a while.
+Note that ~CSV2HTML_EXPORTDIR="/exports/"~ is mandatory here, otherwise
+your container will store HTML pages in =/tmp/= and they will be lost.
 
 * Todo
 
