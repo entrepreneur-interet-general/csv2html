@@ -55,7 +55,7 @@
                    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
     (h/include-js "https://code.jquery.com/jquery-1.12.4.js"
                   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")]
-   [:body
+   [:body {:style "padding:1em;"}
     [:h1 filename]
     [:br]
     [:table {:id "example" :class "display" :cellspacing "0" :width "100%"}
