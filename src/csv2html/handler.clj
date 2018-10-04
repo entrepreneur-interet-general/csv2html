@@ -56,14 +56,13 @@
     (h/include-js "https://code.jquery.com/jquery-1.12.4.js"
                   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")]
    [:body
-    [:div {:class "container"}
-     [:h1 filename]
-     [:br]
-     [:table {:id "example" :class "display" :cellspacing "0" :width "100%"}
-      [:thead [:tr (for [x (first csv-data)] [:td x])]]
-      [:tfoot [:tr (for [x (first csv-data)] [:td x])]]
-      [:tbody (for [row (rest csv-data)]
-                [:tr (for [field row] [:td field])])]]]
+    [:h1 filename]
+    [:br]
+    [:table {:id "example" :class "display" :cellspacing "0" :width "100%"}
+     [:thead [:tr (for [x (first csv-data)] [:td x])]]
+     [:tfoot [:tr (for [x (first csv-data)] [:td x])]]
+     [:tbody (for [row (rest csv-data)]
+               [:tr (for [field row] [:td field])])]]
     (h/include-js "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js")
     [:script
      "$(function(){$(\"#example\").dataTable({\"oLanguage\":{\"sUrl\":\"http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json\",},\"iDisplayLength\": 15});})"]]))
