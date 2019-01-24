@@ -1,5 +1,11 @@
 #+title: csv2html
 
+* Maintenance
+
+This repository is now maintained on https://github.com/etalab/csv2html.
+
+The contents below is for archive purpose.
+
 * What it does?
 
 csv2html converts plain csv to datatables HTML pages.
